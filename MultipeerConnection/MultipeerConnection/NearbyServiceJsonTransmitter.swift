@@ -9,7 +9,7 @@
 import Foundation
 import MultipeerConnectivity
 
-protocol JsonTransmitter: class {
+protocol JsonTransmitter: AnyObject {
     var delegate: JsonTransmitterDelegate? { get set }
 
     func turnOn()
@@ -17,11 +17,10 @@ protocol JsonTransmitter: class {
     func sendJson(_ json: [String: Any], to peers: [String])
 }
 
-protocol JsonTransmitterDelegate: class {
+protocol JsonTransmitterDelegate: AnyObject {
     func connectedDevicesChanged(transmitter: JsonTransmitter, connectedDevices: [String])
     func transmitterDidReceiveData(transmitter: JsonTransmitter, jsonData: [String: Any], peerID: String)
 }
-
 
 class NearbyServiceJsonTransmitter: NSObject, JsonTransmitter {
 

@@ -106,7 +106,7 @@ class PeerController: Equatable, Hashable {
     }
 }
 
-protocol TimeSynchronizerDelegate: class {
+protocol TimeSynchronizerDelegate: AnyObject {
     func didChangePeers(_ timeSynchronizer: TimeSynchronizer, peersCount: Int)
 }
 

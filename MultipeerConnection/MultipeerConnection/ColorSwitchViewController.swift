@@ -7,49 +7,50 @@
 //
 
 import UIKit
+import MultipeerConnectivity
 
 class ColorSwitchViewController: UIViewController {
 
-    @IBOutlet private var connectionsLabel: UILabel!
-    @IBOutlet private var startButton: UIButton!
-    
-//    private lazy var synchronizer = TimeSynchronizer(transmitter: NearbyServiceJsonTransmitter())
+    private enum Constant {
+        static let serviceType = "my-service"
+    }
 
-    lazy var trasmitter = NearbyServiceJsonTransmitter()
+    lazy var session: MCSession = {
+        print(UIDevice.current.name)
+        return MCSession(peer: MCPeerID(displayName: UIDevice.current.name))
+    }()
+
+    var advertiserAssistant: MCAdvertiserAssistant?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.synchronizer.delegate = self
-        self.startButton.isEnabled = false
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        trasmitter.turnOn()
     }
 
-    @IBAction func redTapped(_ sender: UIButton) {
-        self.change(color: .red)
+    @IBAction func browseAction(_ sender: UIButton) {
+        let vc = MCBrowserViewController.init(serviceType: Constant.serviceType, session: session)
+        self.present(vc, animated: true, completion: nil)
     }
 
-    @IBAction func yellowTapped(_ sender: UIButton) {
-        self.change(color: .yellow)
-    }
-
-    @IBAction func continiousStartAction(_ sender: UIButton) {
-//        synchronizer.synchronize()
-    }
-
-    private func change(color : UIColor) {
-        UIView.animate(withDuration: 0.0) {
-            self.view.backgroundColor = color
+    @IBAction func advertiseAction(_ sender: UIButton) {
+        advertiserAssistant = MCAdvertiserAssistant(serviceType: Constant.serviceType, discoveryInfo: nil, session: session)
+        
+        if let advertiserAssistant = advertiserAssistant {
+            advertiserAssistant.delegate = self
+            advertiserAssistant.start()
         }
     }
 }
 
-extension ColorSwitchViewController: TimeSynchronizerDelegate {
-    func didChangePeers(_ timeSynchronizer: TimeSynchronizer, peersCount: Int) {
-        self.startButton.isEnabled = (peersCount > 0)
+extension ColorSwitchViewController: MCAdvertiserAssistantDelegate {
+    func advertiserAssistantWillPresentInvitation(_ advertiserAssistant: MCAdvertiserAssistant) {
+        print("advertiserAssistantWillPresentInvitation")
+    }
+
+    func advertiserAssistantDidDismissInvitation(_ advertiserAssistant: MCAdvertiserAssistant) {
+        print("advertiserAssistantDidDismissInvitation")
     }
 }
-

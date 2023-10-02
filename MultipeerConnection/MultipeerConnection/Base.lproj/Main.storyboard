@@ -22,39 +22,24 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpH-VV-sXl">
-                                <rect key="frame" x="32" y="104" width="44" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="bJl-Ac-uLX"/>
-                                </constraints>
-                                <state key="normal" title="Red"/>
+                                <rect key="frame" x="32" y="104" width="51" height="30"/>
+                                <state key="normal" title="Browse"/>
                                 <connections>
-                                    <action selector="redTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BRH-OI-okH"/>
+                                    <action selector="browseAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BRH-OI-okH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkS-Vd-SVb">
-                                <rect key="frame" x="120" y="104" width="44" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="lMx-Vt-kY4"/>
-                                </constraints>
-                                <state key="normal" title="Yellow"/>
+                                <rect key="frame" x="127" y="104" width="65" height="30"/>
+                                <state key="normal" title="Advertise"/>
                                 <connections>
-                                    <action selector="yellowTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CM0-Km-dox"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZ8-Hm-WI4">
-                                <rect key="frame" x="132" y="340.5" width="111" height="30"/>
-                                <state key="normal" title="Continious Start"/>
-                                <connections>
-                                    <action selector="continiousStartAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SkF-um-sDi"/>
+                                    <action selector="advertiseAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CM0-Km-dox"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bVQ-sJ-2e3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="5h3-V0-BM3"/>
-                            <constraint firstItem="MZ8-Hm-WI4" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Eoo-cv-3Hi"/>
                             <constraint firstItem="HpH-VV-sXl" firstAttribute="leading" secondItem="bVQ-sJ-2e3" secondAttribute="leading" constant="16" id="G2l-cr-aBw"/>
-                            <constraint firstItem="MZ8-Hm-WI4" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="O55-7R-To7"/>
                             <constraint firstItem="dkS-Vd-SVb" firstAttribute="centerY" secondItem="HpH-VV-sXl" secondAttribute="centerY" id="f49-hd-efL"/>
                             <constraint firstItem="bVQ-sJ-2e3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="jN2-L9-2A4"/>
                             <constraint firstItem="HpH-VV-sXl" firstAttribute="top" secondItem="bVQ-sJ-2e3" secondAttribute="bottom" constant="23" id="mAr-92-JHU"/>
@@ -63,10 +48,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="R6W-VL-fs7"/>
-                    <connections>
-                        <outlet property="connectionsLabel" destination="bVQ-sJ-2e3" id="VO4-6R-1iR"/>
-                        <outlet property="startButton" destination="MZ8-Hm-WI4" id="LZp-ZU-C7k"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
