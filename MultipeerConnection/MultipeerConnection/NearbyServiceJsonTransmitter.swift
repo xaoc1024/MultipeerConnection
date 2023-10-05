@@ -26,7 +26,7 @@ class NearbyServiceJsonTransmitter: NSObject, JsonTransmitter {
 
     weak var delegate : JsonTransmitterDelegate?
 
-    private let serviceType = "time-synchro"
+    private let serviceType = "synchro"
 
     private let myPeerId = MCPeerID(displayName: UIDevice.current.name)
 
